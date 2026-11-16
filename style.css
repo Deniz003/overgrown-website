@@ -190,3 +190,25 @@ footer {
         gap: 5px;
     }
 }
+
+/* APPLICATION REQUIREMENT */
+
+.requirement {
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: #edf1ea;
+    border: 1px solid #dce5d9;
+    border-radius: 5px;
+}
+
+.requirement strong {
+    display: block;
+    color: #405b44;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.requirement p {
+    color: #687368;
+    font-size: 13px;
+}
