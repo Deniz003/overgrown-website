@@ -1,173 +1,221 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overgrown — Roblox Myth Project</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overgrown — Roblox Myth Project</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-    <a href="#" class="logo">overgrown.</a>
+  <!-- Pure CSS Atmospheric Fog Layers -->
+  <div class="atmosphere" aria-hidden="true">
+    <div class="fog-layer fog-1"></div>
+    <div class="fog-layer fog-2"></div>
+    <div class="fog-layer fog-3"></div>
+  </div>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#inspiration">Inspiration</a>
-        <a href="#development">Development</a>
-        <a href="#recruitment">Recruitment</a>
+  <!-- Minimal Top Navigation -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="#home" class="brand">OVERGROWN</a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#inspiration">Inspiration</a></li>
+        <li><a href="#development">Development</a></li>
+        <li><a href="#recruitment" class="nav-cta">Join the Team</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-        <span class="tag">ROBLOX MYTH PROJECT</span>
-
+  <main>
+    <!-- 1. HOME SECTION -->
+    <section id="home" class="hero">
+      <div class="container hero-content fade-in">
+        <p class="eyebrow">UPCOMING ROBLOX MYTH PROJECT</p>
         <h1>Overgrown</h1>
-
-        <p>A small Roblox myth project currently in development.</p>
-
-        <a href="#about" class="button">Take a look</a>
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about">
-        <h2>About Overgrown</h2>
-
-        <p>
-            Hey! Overgrown is an upcoming Roblox myth game focused on
-            exploration, atmosphere and discovery.
-
-            The goal is to create a calm and immersive world with
-            unusual environments, industrial structures, hidden
-            locations and plenty of things to discover.
+        <p class="lead">
+          Quiet structures reclaimed by nature. Deep subterranean corridors, suspended catwalks, 
+          and forgotten spaces bathed in mist and cold blue light.
         </p>
-    </section>
-
-
-    <!-- INSPIRATION -->
-
-    <section id="inspiration">
-        <h2>Our Inspiration</h2>
-
-        <p>
-            This project will be moderately inspired by the game
-            on Roblox: Ocean Terror. It is also a pretty cool game
-            about myth and discovery.
-        </p>
-    </section>
-
-
-    <!-- DEVELOPMENT -->
-
-    <section id="development">
-        <h2>Development</h2>
-
-        <p>
-            The project is still in its early stages, and there's
-            quite a lot of work to be done. I'm currently looking
-            for people who would like to help bring Overgrown to life.
-            Whether you're interested in building or scripting,
-            your contribution would be appreciated!
-        </p>
-    </section>
-
-
-    <!-- RECRUITMENT -->
-
-    <section id="recruitment">
-
-        <h2 class="rainbow-title">Want to help out?</h2>
-
-        <p>
-            I'm currently looking for builders and scripters.
-            If you're interested, feel free to apply below!
-        </p>
-
-        <div class="roles">
-
-            <!-- BUILDER -->
-
-            <div class="role">
-                <h3>Builder</h3>
-
-                <p>
-                    Help create the environments, architecture,
-                    structures and locations found throughout Overgrown.
-                </p>
-
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfQcybTlmtYAeb37tCPAP7TPUF_dQHZIjg0Nt2QGnpAap-ZGA/viewform?usp=dialog"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Apply as a Builder →
-                </a>
-            </div>
-
-
-            <!-- SCRIPTER -->
-
-            <div class="role">
-                <h3>Scripter</h3>
-
-                <p>
-                    Help with Luau scripting, gameplay systems,
-                    interactions and other technical features.
-                </p>
-
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSflakFCcdc7mm1zGKa5K0RhAtIYBd3fMvTIa1UsPjLNW6DRIg/viewform?usp=dialog"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Apply as a Scripter →
-                </a>
-            </div>
-
+        <div class="hero-actions">
+          <a href="#about" class="btn btn-primary">Explore the Project</a>
+          <a href="#recruitment" class="btn btn-secondary">Apply to Develop</a>
         </div>
+      </div>
+      <div class="catwalk-divider" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
 
+    <!-- 2. ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container grid-two">
+        <div class="section-label fade-in">
+          <span class="index-num">01</span>
+          <h2>About Overgrown</h2>
+        </div>
+        <div class="section-body fade-in">
+          <p>
+            <strong>Overgrown</strong> is an atmospheric Roblox myth game centered around quiet 
+            exploration, environmental storytelling, and slow discovery. Rather than relying on 
+            loud scares or constant action, the world invites players to wander, observe, and 
+            piece together what happened in a place left behind.
+          </p>
+          <p>
+            The world blends cold industrial architecture with quiet natural reclamation. Players 
+            will navigate narrow metal catwalks, damp cavern networks, and unusual, isolated 
+            structures shrouded in thick fog and pale blue illumination.
+          </p>
+          <ul class="feature-tags">
+            <li>Atmospheric Exploration</li>
+            <li>Industrial Structures &amp; Catwalks</li>
+            <li>Hidden Locations &amp; Caves</li>
+            <li>Fog &amp; Cool Blue Lighting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <!-- REQUIREMENT -->
-
-        <div class="requirement">
-            <strong>Before applying:</strong>
-
+    <!-- 3. INSPIRATION SECTION -->
+    <section id="inspiration" class="section section-tinted">
+      <div class="container grid-two">
+        <div class="section-label fade-in">
+          <span class="index-num">02</span>
+          <h2>Inspiration</h2>
+        </div>
+        <div class="section-body fade-in">
+          <div class="quote-frame">
+            <p class="quote-heading">Influenced by <em>Ocean Terror</em> on Roblox</p>
             <p>
-                You MUST be on a computer in order to become either
-                a builder or a scripter, as you need to have
-                Roblox Studio installed.
+              A major creative inspiration behind Overgrown is <strong>Ocean Terror</strong> on Roblox—specifically 
+              how it uses isolation, scale, and quiet tension to make an environment feel genuinely vast 
+              and unsettling.
             </p>
-        </div>
-
-
-        <!-- APPLICATION NOTE -->
-
-        <div class="application-note">
-            <strong>After submitting your application:</strong>
-
             <p>
-                Please send me a friend request on Roblox so I can
-                accept it. Thank you for applying!
+              Overgrown aims to capture that same sense of quiet intrigue and environmental weight, 
+              translating it into a world of misty industrial ruins, subterranean depths, and hidden paths.
             </p>
+          </div>
         </div>
-
+      </div>
     </section>
 
-</main>
+    <!-- 4. DEVELOPMENT SECTION -->
+    <section id="development" class="section">
+      <div class="container grid-two">
+        <div class="section-label fade-in">
+          <span class="index-num">03</span>
+          <h2>Development Status</h2>
+        </div>
+        <div class="section-body fade-in">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Early Development Phase
+          </div>
+          <p>
+            Overgrown is currently in its early stages. Core concepts, environmental mood, world 
+            structure, and foundational systems are actively being planned and shaped.
+          </p>
+          <p>
+            Because the project is still growing from the ground up, early contributors will have a 
+            meaningful hand in shaping the atmosphere, layout, and mechanics of the finished game.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- 5. RECRUITMENT SECTION -->
+    <section id="recruitment" class="section section-tinted">
+      <div class="container">
+        <div class="recruitment-header fade-in">
+          <span class="index-num">04</span>
+          <h2>Recruitment</h2>
+          <p>
+            I am currently looking for dedicated developers to help bring Overgrown to life. 
+            If you enjoy atmospheric world-building and attention to detail, consider applying below.
+          </p>
+        </div>
 
-<!-- FOOTER -->
+        <!-- Important Requirement Notice -->
+        <div class="notice-box fade-in">
+          <p>
+            <strong>Important Requirement:</strong> You MUST be on a computer in order to become 
+            either a builder or a scripter as you need to have Roblox Studio installed.
+          </p>
+        </div>
 
-<footer>
-    <span>overgrown.</span>
-    <span>Made for Roblox · 2026</span>
-</footer>
+        <!-- Role Cards -->
+        <div class="role-grid">
+          <!-- Builder Card -->
+          <article class="role-card fade-in">
+            <div class="role-meta">ROLE 01 // ENVIRONMENT</div>
+            <h3>Builder</h3>
+            <p>
+              Help construct Overgrown’s environments—ranging from rusted industrial catwalks and 
+              mysterious facilities to natural caves, hidden rooms, and atmospheric lighting setups.
+            </p>
+            <ul class="role-points">
+              <li>Environmental &amp; structural design</li>
+              <li>Atmosphere, fog, and lighting composition</li>
+              <li>Comfortable working in Roblox Studio</li>
+            </ul>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfQcybTlmtYAeb37tCPAP7TPUF_dQHZIjg0Nt2QGnpAap-ZGA/viewform?usp=dialog" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-primary full-width"
+            >
+              Apply as a Builder &rarr;
+            </a>
+          </article>
 
+          <!-- Scripter Card -->
+          <article class="role-card fade-in">
+            <div class="role-meta">ROLE 02 // SYSTEMS</div>
+            <h3>Scripter</h3>
+            <p>
+              Develop the underlying Luau systems that bring the world to life—interactive doors, 
+              environmental triggers, atmospheric events, progression mechanics, and smooth player systems.
+            </p>
+            <ul class="role-points">
+              <li>Clean, reliable Roblox Luau scripting</li>
+              <li>Interactive world mechanics &amp; events</li>
+              <li>Comfortable working in Roblox Studio</li>
+            </ul>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSflakFCcdc7mm1zGKa5K0RhAtIYBd3fMvTIa1UsPjLNW6DRIg/viewform?usp=dialog" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-primary full-width"
+            >
+              Apply as a Scripter &rarr;
+            </a>
+          </article>
+        </div>
+
+        <!-- Post-Application Note -->
+        <div class="post-apply-note fade-in">
+          <p>
+            After submitting your application, please send me a friend request on Roblox so I can 
+            accept it. Thank you for applying!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="brand-small">OVERGROWN</span>
+      <span class="footer-note">A Roblox Myth Project &bull; Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
