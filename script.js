@@ -1,40 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Mobile Navigation Toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector(".site-nav");
+
+menuButton.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("open");
+
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+});
+
+
+// Close the menu after selecting a navigation link.
+
+navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
     });
-
-    // Close mobile menu when a link is clicked
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  // 2. Calm Scroll Reveal (triggers once per element)
-  const faders = document.querySelectorAll(".fade-in");
-
-  const appearObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -30px 0px",
-    }
-  );
-
-  faders.forEach((el) => appearObserver.observe(el));
 });
