@@ -1,5 +1,7 @@
 
-/* GENERAL */
+/* =================================
+   GENERAL
+================================= */
 
 * {
     margin: 0;
@@ -12,6 +14,10 @@ html {
 }
 
 body {
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+
     font-family: Arial, sans-serif;
     background: #f5f6f3;
     color: #292e29;
@@ -19,15 +25,122 @@ body {
 }
 
 
-/* HEADER */
+/* =================================
+   FOG AND CLOUD DECORATION
+================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+
+    top: -15%;
+    left: -15%;
+    width: 130%;
+    height: 130%;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 30%,
+            rgba(178, 195, 177, 0.24),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 75% 65%,
+            rgba(191, 202, 210, 0.23),
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 55% 5%,
+            rgba(255, 255, 255, 0.7),
+            transparent 45%
+        );
+
+    filter: blur(25px);
+    opacity: 0.75;
+
+    animation: fog-drift 38s ease-in-out infinite alternate;
+}
+
+
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+
+    top: -20%;
+    left: -10%;
+    width: 120%;
+    height: 140%;
+
+    background:
+        radial-gradient(
+            ellipse at 85% 20%,
+            rgba(255, 255, 255, 0.65),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 10% 80%,
+            rgba(194, 207, 193, 0.2),
+            transparent 42%
+        );
+
+    filter: blur(35px);
+    opacity: 0.55;
+
+    animation: cloud-drift 55s ease-in-out infinite alternate;
+}
+
+
+@keyframes fog-drift {
+    from {
+        transform: translate3d(-2%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(2%, 3%, 0);
+    }
+}
+
+
+@keyframes cloud-drift {
+    from {
+        transform: translate3d(2%, -1%, 0);
+    }
+
+    to {
+        transform: translate3d(-3%, 2%, 0);
+    }
+}
+
+
+/* Keep website content above the fog */
+
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =================================
+   HEADER
+================================= */
 
 header {
     min-height: 72px;
     padding: 0 10%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffffff;
+
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+
     border-bottom: 1px solid #e5e8e2;
 }
 
@@ -44,24 +157,47 @@ nav {
 }
 
 nav a {
+    position: relative;
+
     color: #687168;
     text-decoration: none;
     font-size: 13px;
-    transition: color 0.2s ease;
+
+    transition: color 0.25s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: #56765a;
+
+    transition: width 0.25s ease;
 }
 
 nav a:hover {
     color: #344b37;
 }
 
+nav a:hover::after {
+    width: 100%;
+}
 
-/* MAIN CONTENT */
+
+/* =================================
+   MAIN CONTENT
+================================= */
 
 main {
     max-width: 950px;
     margin: auto;
     padding: 0 30px;
-    animation: page-enter 0.8s ease-out;
 }
 
 section {
@@ -71,6 +207,8 @@ section {
 section:not(.hero) {
     padding: 55px 0;
     border-bottom: 1px solid #e0e5dd;
+
+    animation: section-enter 1s ease both;
 }
 
 section h2 {
@@ -85,19 +223,70 @@ section > p {
 }
 
 
-/* HERO */
+/* Staggered section entrances */
+
+#about {
+    animation-delay: 0.15s;
+}
+
+#inspiration {
+    animation-delay: 0.3s;
+}
+
+#development {
+    animation-delay: 0.45s;
+}
+
+#recruitment {
+    animation-delay: 0.6s;
+}
+
+
+@keyframes section-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =================================
+   HERO
+================================= */
 
 .hero {
     padding: 90px 0;
     border-bottom: 1px solid #e0e5dd;
+
+    animation: hero-enter 1.1s ease both;
+}
+
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .tag {
     display: inline-block;
+
     color: #56765a;
     background: #e8eee5;
+
     padding: 5px 10px;
     border-radius: 3px;
+
     font-size: 10px;
     letter-spacing: 1px;
     margin-bottom: 18px;
@@ -116,66 +305,38 @@ section > p {
 }
 
 
-/* BUTTON */
+/* =================================
+   BUTTON
+================================= */
 
 .button {
     display: inline-block;
+
     background: #405b44;
     color: white;
+
     text-decoration: none;
     padding: 10px 19px;
     border-radius: 4px;
+
     font-size: 13px;
-    transition: background 0.2s ease, transform 0.2s ease;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .button:hover {
     background: #304832;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 14px rgba(40, 60, 40, 0.12);
 }
 
 
-/* SMALL JOKES */
-
-.hero-joke {
-    margin-top: 30px;
-    color: #899188;
-    font-size: 12px;
-}
-
-.hero-joke span {
-    color: #56765a;
-    margin-left: 5px;
-}
-
-.development-joke {
-    margin-top: 22px;
-    color: #7c857b;
-    font-size: 12px;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    background: #83a77e;
-    border-radius: 50%;
-    margin-right: 7px;
-    animation: status-pulse 2.5s ease-in-out infinite;
-}
-
-.recruitment-joke {
-    margin-top: 24px;
-    color: #899188;
-    font-size: 12px;
-}
-
-.recruitment-joke span {
-    color: #56765a;
-}
-
-
-/* RECRUITMENT TITLE */
+/* =================================
+   RAINBOW RECRUITMENT TITLE
+================================= */
 
 .rainbow-title {
     width: fit-content;
@@ -191,22 +352,29 @@ section > p {
         #e87979
     );
 
-    background-size: 250% auto;
+    background-size: 300% auto;
+
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 
-    animation: rainbow-shift 8s linear infinite;
+    animation: rainbow-shift 7s linear infinite;
 }
 
 @keyframes rainbow-shift {
+    from {
+        background-position: 0% center;
+    }
+
     to {
-        background-position: 250% center;
+        background-position: 300% center;
     }
 }
 
 
-/* APPLICATION CARDS */
+/* =================================
+   APPLICATION CARDS
+================================= */
 
 .roles {
     display: grid;
@@ -216,21 +384,27 @@ section > p {
 }
 
 .role {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+
     border: 1px solid #e1e6df;
     border-radius: 5px;
+
     padding: 25px;
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .role:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+
     border-color: #b9cbb8;
-    box-shadow: 0 5px 16px rgba(40, 60, 40, 0.06);
+
+    box-shadow:
+        0 8px 22px rgba(40, 60, 40, 0.08);
 }
 
 .role h3 {
@@ -256,18 +430,22 @@ section > p {
 }
 
 
-/* REQUIREMENT NOTE */
+/* =================================
+   REQUIREMENT NOTE
+================================= */
 
 .requirement {
     margin-top: 25px;
     padding: 18px 20px;
-    background: #edf1ea;
+
+    background: rgba(237, 241, 234, 0.9);
     border: 1px solid #dce5d9;
     border-radius: 5px;
 }
 
 .requirement strong {
     display: block;
+
     color: #405b44;
     font-size: 13px;
     margin-bottom: 5px;
@@ -279,7 +457,9 @@ section > p {
 }
 
 
-/* APPLICATION NOTE */
+/* =================================
+   APPLICATION NOTE
+================================= */
 
 .application-note {
     margin-top: 18px;
@@ -292,45 +472,26 @@ section > p {
 }
 
 
-/* FOOTER */
+/* =================================
+   FOOTER
+================================= */
 
 footer {
     max-width: 950px;
     margin: auto;
     padding: 28px 30px;
+
     display: flex;
     justify-content: space-between;
+
     color: #899188;
     font-size: 12px;
 }
 
 
-/* ANIMATIONS */
-
-@keyframes page-enter {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes status-pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
-}
-
-
-/* MOBILE */
+/* =================================
+   MOBILE
+================================= */
 
 @media (max-width: 600px) {
 
@@ -374,7 +535,9 @@ footer {
 }
 
 
-/* REDUCED MOTION ACCESSIBILITY */
+/* =================================
+   REDUCED MOTION ACCESSIBILITY
+================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
